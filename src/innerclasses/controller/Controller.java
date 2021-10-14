@@ -15,9 +15,11 @@ public class Controller {
             // Make a copy so you're not modifying the list
             // while you're selecting the elements in it:
             for(Event e : new ArrayList<Event>(eventList)) {
-                System.out.println(e);
-                e.action();
-                eventList.remove(e);
+                if(e.ready()) {
+                    System.out.println(e);
+                    e.action();
+                    eventList.remove(e);
+                }
             }
         }
     }
